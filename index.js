@@ -10,11 +10,12 @@ app.use(bodyParser.json());
 
 app.get('/food', (req, res) => {
   // axios.get
+  db.dig(food => res.send(food));
 })
 
 app.post('/food', (req, res) => {
-  console.log('in here server')
-  res.send('hi');
+  console.log('index,', req.body)
+  db.save(req.body)
 })
 
 // app.use need routes
