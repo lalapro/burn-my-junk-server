@@ -14,15 +14,14 @@ app.get('/food', (req, res) => {
 })
 
 app.post('/food', (req, res) => {
-  // db.dig(foodList => {
-  //   let exists = foodList.some(item => {
-  //     return item.food === req.food
-  //   });
-  //   if (!exists) {
+  db.dig(foodList => {
+    let exists = foodList.some(item => {
+      return item.barcode === req.body.barcode
+    });
+    if (!exists) {
       db.save(req.body);
-  //   }
-  // });
-  // res.send('hi')
+    }
+  });
 });
 
 // app.use need routes
