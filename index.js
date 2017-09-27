@@ -20,6 +20,9 @@ app.post('/food', (req, res) => {
     });
     if (!exists) {
       db.save(req.body);
+      res.send();
+    } else {
+      res.send();
     }
   });
 });
