@@ -6,7 +6,8 @@ mongoose.connect('mongodb://lalapo:123@ds149874.mlab.com:49874/junkfood', {useMo
 let repoSchema = mongoose.Schema({
   food: String,
   calories: Number,
-  img: String
+  img: String,
+  barcode: String
 });
 
 let Food = mongoose.model('Food', repoSchema);
@@ -16,7 +17,8 @@ let save = (data) => {
   Food.create({
     food: data.food,
     calories: data.calories,
-    img: data.img
+    img: data.img,
+    barcode: data.barcode
   })
 }
 
