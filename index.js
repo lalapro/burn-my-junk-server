@@ -12,14 +12,14 @@ app.get('/food', (req, res) => {
   // axios.get
 })
 
-app.post('https://localhost:3000/food', (req, res) => {
+app.post('/food', (req, res) => {
   console.log('in here server')
   res.send('hi');
 })
 
 // app.use need routes
 
-app.set('port', 3000);
+app.set('port', process.env.PORT);
 
 
 
