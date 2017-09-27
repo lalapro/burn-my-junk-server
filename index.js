@@ -15,13 +15,10 @@ app.get('/food', (req, res) => {
 
 app.post('/food', (req, res) => {
   db.dig(foodList => {
-    let exists = false;
-    foodList.forEach(food => {
-      if (food.food === req.food && !exists) {
-        exists = true;
-      }
+    let exists = foodList.some(item => {
+      return item.food === req.food
     });
-    if (exists) {
+    if (!exists) {
       db.save(req.body);
     }
   });

@@ -13,7 +13,6 @@ let repoSchema = mongoose.Schema({
 let Food = mongoose.model('Food', repoSchema);
 
 let save = (data) => {
-  console.log('database', data)
   Food.create({
     food: data.food,
     calories: data.calories,
