@@ -14,9 +14,18 @@ app.get('/food', (req, res) => {
 })
 
 app.post('/food', (req, res) => {
-  console.log('index,', req.body)
-  db.save(req.body)
-})
+  db.dig(foodList => {
+    let exists = false;
+    foodList.forEach(food => {
+      if (food.food === req.food && !exists) {
+        exists = true;
+      }
+    });
+    if (exists) {
+      db.save(req.body);
+    }
+  });
+});
 
 // app.use need routes
 
